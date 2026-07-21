@@ -1,0 +1,7 @@
+
+# Generated datasets and archives
+*.zip
+*_cycles_1/
+TMP/
+**/training_data/
+**/test_data/

@@ -33,7 +33,7 @@ def rank2(A):
 
 
 # depolarizing noise model 
-error_rate = 0.003
+error_rate = 0.005
 error_rate_init = error_rate
 error_rate_idle = error_rate
 error_rate_cnot = error_rate
@@ -52,7 +52,7 @@ sZ= [3, 5, 0, 1, 2, 4, 'idle']
 
 
 # number of syndrome measurement cycles 
-num_cycles = 12
+num_cycles = 1# changinng to 1 to reduce the number of circuits generated for testing purposes. Can be increased later.
 
 
 # Parameters of a Bivariate Bicycle (BB) code
@@ -64,8 +64,10 @@ num_cycles = 12
 # A = x^{a_1} + y^{a_2} + y^{a_3} 
 # B = y^{b_1} + x^{b_2} + x^{b_3}
 
-# [[144,12,12]]
-ell,m = 12,6
+
+#new code parameters for testing
+
+ell,m = 3,3
 a1,a2,a3 = 3,1,2
 b1,b2,b3 = 3,1,2
 
@@ -74,7 +76,7 @@ b1,b2,b3 = 3,1,2
 #a1,a2,a3=26,6,8
 #b1,b2,b3=7,9,20
 
-# [[72,12,6]]
+ #[[72,12,6]]
 #ell,m = 6,6
 #a1,a2,a3=3,1,2
 #b1,b2,b3=3,1,2
@@ -116,21 +118,35 @@ for i in range(m):
 	y[i] = np.kron(I_ell,np.roll(I_m,i,axis=1))
 
 
-A = (x[a1] + y[a2] + y[a3]) % 2
-B = (y[b1] + x[b2] + x[b3]) % 2
-
+#A = (x[a1] + y[a2] + y[a3]) % 2
+#B = (y[b1] + x[b2] + x[b3]) % 2
+A = (x[a1 % ell] + y[a2 % m] + y[a3 % m]) % 2
+B = (y[b1 % m] + x[b2 % ell] + x[b3 % ell]) % 2
+'''
 A1 = x[a1]
 A2 = y[a2]
 A3 = y[a3]
 B1 = y[b1]
 B2 = x[b2]
 B3 = x[b3]
+'''
+
+A1 = x[a1 % ell]
+A2 = y[a2 % m]
+A3 = y[a3 % m]
+
+B1 = y[b1 % m]
+B2 = x[b2 % ell]
+B3 = x[b3 % ell]
 
 AT = np.transpose(A)
 BT = np.transpose(B)
 
 hx = np.hstack((A,B))
 hz = np.hstack((BT,AT))
+# Save original code parity-check matrices before Bravyi later reuses HX/HZ
+hx_code = hx.copy()
+hz_code = hz.copy()
 
 # number of logical qubits
 k = n - rank2(hx) - rank2(hz)
@@ -143,6 +159,18 @@ print('Done')
 
 lz = qcode.lz
 lx = qcode.lx
+#Adding prints
+print("n =", n)
+print("ell =", ell)
+print("m =", m)
+print("k =", k)
+print("hx =")
+print(hx)
+print("hz =")
+print(hz)
+print("row weights hz =", np.sum(hz, axis=1))
+print("commutation hx @ hz.T mod 2 =")
+print((hx @ hz.T) % 2)
 
 
 # Give a name to each qubit
@@ -638,6 +666,10 @@ mydata['Xchecks']=Xchecks
 mydata['Zchecks']=Zchecks
 mydata['HX']=HX
 mydata['HZ']=HZ
+#adding original CSS codes PCM
+mydata["hx_code"] = hx_code
+mydata["hz_code"] = hz_code
+
 mydata['lx']=lx
 mydata['lz']=lz
 mydata['first_logical_rowZ']=first_logical_rowZ
