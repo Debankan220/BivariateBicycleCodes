@@ -2,6 +2,15 @@
 # Generated datasets and archives
 *.zip
 *_cycles_1/
+*_spread_comparison/
 TMP/
 **/training_data/
 **/test_data/
+**/testing_data/
+**/correlated_weights/
+**/cnot_error_rates/
+**/results/
+
+# Python
+__pycache__/
+*.pyc

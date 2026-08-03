@@ -1,3 +1,4 @@
+import sys
 import numpy as np
 import itertools
 from ldpc import bposd_decoder
@@ -32,12 +33,26 @@ def rank2(A):
 
 
 
-# depolarizing noise model 
-error_rate = 0.005
-error_rate_init = error_rate
-error_rate_idle = error_rate
-error_rate_cnot = error_rate
-error_rate_meas = error_rate
+
+# usage: python decoder_setup.py [error_rate] [sample]
+# error rate defaults to 0.005; sample (the disorder realisation index) to 1
+idle_error_rate = 0.0002
+two_qubit_error_rate = float(sys.argv[1]) if len(sys.argv) > 1 else 0.005
+sample = int(sys.argv[2]) if len(sys.argv) > 2 else 1
+error_rate_init = 0
+error_rate_idle = idle_error_rate
+error_rate_cnot = two_qubit_error_rate
+error_rate_meas =0
+
+# Per-CNOT disorder: each physical (control,target) pair gets its own two-qubit
+# error rate drawn from N(error_rate_cnot, cnot_sigma), fixed for the whole run.
+# Set cnot_sigma = 0 to recover the homogeneous model exactly.
+cnot_sigma = 0 * two_qubit_error_rate
+# The sample index selects the disorder realisation: one independent RNG stream
+# per sample, so sample 1 and sample 2 are different "chips" with identical
+# statistics. Same (base seed, sample) always reproduces the same chip.
+cnot_base_seed = 12345
+cnot_seed = [cnot_base_seed, sample]
 
 
 
@@ -67,9 +82,9 @@ num_cycles = 1# changinng to 1 to reduce the number of circuits generated for te
 
 #new code parameters for testing
 
-ell,m = 3,3
-a1,a2,a3 = 3,1,2
-b1,b2,b3 = 3,1,2
+#ell,m = 3,3
+#a1,a2,a3 = 3,1,2
+#b1,b2,b3 = 3,1,2
 
 # [[784,24,24]]
 #ell,m = 28,14
@@ -77,9 +92,9 @@ b1,b2,b3 = 3,1,2
 #b1,b2,b3=7,9,20
 
  #[[72,12,6]]
-#ell,m = 6,6
-#a1,a2,a3=3,1,2
-#b1,b2,b3=3,1,2
+ell,m = 6,6
+a1,a2,a3=3,1,2
+b1,b2,b3=3,1,2
 
 
 # Ted's code [[90,8,10]]
@@ -294,6 +309,25 @@ for q in Zchecks:
 # full syndrome measurement circuit
 cycle_repeated = num_cycles*cycle
 
+# Draw one error rate per physical CNOT. Keyed by (control,target) so the same
+# gate keeps the same fidelity in every round and every cycle -- this is static
+# device disorder, not fresh noise on each application. Clipping guards the
+# left tail; a Gaussian will otherwise hand us negative probabilities once
+# cnot_sigma gets within ~1/3 of the mean.
+_cnot_rng = np.random.default_rng(cnot_seed)
+cnot_rates = {}
+for gate in cycle:
+	if gate[0]=='CNOT':
+		pair = (gate[1],gate[2])
+		if not(pair in cnot_rates):
+			cnot_rates[pair] = float(np.clip(
+				_cnot_rng.normal(error_rate_cnot,cnot_sigma),0.0,1.0))
+
+if len(cnot_rates)>0:
+	_vals = list(cnot_rates.values())
+	print('sample %d per-CNOT rates: n=%d mean=%.4e min=%.4e max=%.4e (nominal %.4e, sigma %.4e)'
+		% (sample,len(cnot_rates),np.mean(_vals),min(_vals),max(_vals),error_rate_cnot,cnot_sigma))
+
 
 # test the syndrome measurement circuit
 
@@ -323,7 +357,7 @@ else:
 
 # Compute decoding matrices
 
-print('error rate=',error_rate)
+print('error rate=',two_qubit_error_rate)
 print('Generating noisy circuits with a singe Z-type faulty operation...')
 ProbZ = []
 circuitsZ = []
@@ -349,15 +383,16 @@ for gate in cycle_repeated:
 		ProbZ.append(error_rate_idle*2/3)
 	if gate[0]=='CNOT':
 		assert(len(gate)==3)
+		p_cnot = cnot_rates[(gate[1],gate[2])]
 		# add error on the control qubit
 		circuitsZ.append(head + [('Z',gate[1])] + tail)
-		ProbZ.append(error_rate_cnot*4/15)
+		ProbZ.append(p_cnot*4/15)
 		# add error on the target qubit
 		circuitsZ.append(head + [('Z',gate[2])] + tail)
-		ProbZ.append(error_rate_cnot*4/15)
+		ProbZ.append(p_cnot*4/15)
 		# add ZZ error on the control and the target qubits
 		circuitsZ.append(head + [('ZZ',gate[1],gate[2])] + tail)
-		ProbZ.append(error_rate_cnot*4/15)
+		ProbZ.append(p_cnot*4/15)
 		
 num_errZ=len(circuitsZ)
 print('Number of noisy circuits=',num_errZ)
@@ -389,15 +424,16 @@ for gate in cycle_repeated:
 		ProbX.append(error_rate_idle*2/3)
 	if gate[0]=='CNOT':
 		assert(len(gate)==3)
+		p_cnot = cnot_rates[(gate[1],gate[2])]
 		# add error on the control qubit
 		circuitsX.append(head + [('X',gate[1])] + tail)
-		ProbX.append(error_rate_cnot*4/15)
+		ProbX.append(p_cnot*4/15)
 		# add error on the target qubit
 		circuitsX.append(head + [('X',gate[2])] + tail)
-		ProbX.append(error_rate_cnot*4/15)
+		ProbX.append(p_cnot*4/15)
 		# add XX error on the control and the target qubits
 		circuitsX.append(head + [('XX',gate[1],gate[2])] + tail)
-		ProbX.append(error_rate_cnot*4/15)
+		ProbX.append(p_cnot*4/15)
 		
 	
 num_errX=len(circuitsX)
@@ -682,11 +718,26 @@ mydata['a3']=a3
 mydata['b1']=b1
 mydata['b2']=b2
 mydata['b3']=b3
-mydata['error_rate']=error_rate
+mydata['error_rate']=two_qubit_error_rate
+# Full per-location rate set, so the Monte-Carlo sampler injects faults at
+# exactly the rates the decoder was given priors for.
+mydata['error_rates']={
+	'init': error_rate_init,
+	'idle': error_rate_idle,
+	'meas': error_rate_meas,
+	'cnot': error_rate_cnot,
+}
+mydata['cnot_rates']=cnot_rates
+mydata['cnot_sigma']=cnot_sigma
+mydata['cnot_seed']=cnot_seed
+mydata['sample']=sample
 mydata['sX']=sX
 mydata['sZ']=sZ
 
-title='./TMP/mydata_' + str(n) + '_' + str(k) + '_p_' + str(error_rate) + '_cycles_' + str(num_cycles)
+title=('./TMP/mydata_' + str(n) + '_' + str(k) + '_p_' + str(two_qubit_error_rate)
+	+ '_sig_' + str(cnot_sigma)
+	+ '_cycles_' + str(num_cycles)
+	+ '_s_' + str(sample))
 
 
 print('saving data to ',title)
