@@ -1,0 +1,164 @@
+ok p0.0003_m10_s1
+ok p0.0003_m10_s3
+ok p0.0005_m10_s1
+ok p0.0003_m10_s2
+ok p0.0003_m10_s5
+ok p0.0001_m10_s2
+ok p0.0005_m10_s3
+ok p0.0001_m10_s3
+ok p0.0005_m10_s2
+ok p0.0005_m10_s4
+ok p0.0001_m10_s4
+ok p0.0001_m10_s1
+ok p0.0003_m10_s4
+ok p0.0001_m10_s5
+ok p0.0005_m10_s5
+ok p0.0007_m10_s4
+ok p0.0007_m10_s2
+ok p0.0009_m10_s2
+ok p0.0007_m10_s1
+ok p0.0007_m10_s5
+ok p0.0007_m10_s3
+ok p0.0009_m10_s3
+ok p0.0011_m10_s2
+ok p0.0009_m10_s4
+ok p0.0009_m10_s5
+ok p0.0011_m10_s1
+ok p0.0011_m10_s3
+ok p0.0009_m10_s1
+ok p0.0011_m10_s4
+ok p0.0013_m10_s4
+ok p0.0011_m10_s5
+ok p0.0013_m10_s1
+ok p0.0013_m10_s5
+ok p0.0013_m10_s2
+ok p0.0015_m10_s1
+ok p0.0015_m10_s3
+ok p0.0013_m10_s3
+ok p0.0015_m10_s4
+ok p0.0015_m10_s2
+ok p0.0015_m10_s5
+STAGE generate COMPLETE
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0001_sig_0.001_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0001_sig_0.001_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0001_sig_0.001_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0001_sig_0.001_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0001_sig_0.001_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0001_sig_0.001_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0001_sig_0.001_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0001_sig_0.001_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0001_sig_0.001_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0001_sig_0.001_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0003_sig_0.0029999999999999996_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0003_sig_0.0029999999999999996_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0003_sig_0.0029999999999999996_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0003_sig_0.0029999999999999996_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0003_sig_0.0029999999999999996_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0003_sig_0.0029999999999999996_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0003_sig_0.0029999999999999996_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0003_sig_0.0029999999999999996_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0003_sig_0.0029999999999999996_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0003_sig_0.0029999999999999996_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0005_sig_0.005_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0005_sig_0.005_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0005_sig_0.005_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0005_sig_0.005_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0005_sig_0.005_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0005_sig_0.005_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0005_sig_0.005_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0005_sig_0.005_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0005_sig_0.005_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0005_sig_0.005_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0007_sig_0.007_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0007_sig_0.007_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0007_sig_0.007_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0007_sig_0.007_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0007_sig_0.007_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0007_sig_0.007_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0007_sig_0.007_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0007_sig_0.007_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0007_sig_0.007_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0007_sig_0.007_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0009_sig_0.009_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0009_sig_0.009_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0009_sig_0.009_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0009_sig_0.009_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0009_sig_0.009_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0009_sig_0.009_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0009_sig_0.009_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0009_sig_0.009_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0009_sig_0.009_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0009_sig_0.009_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0011_sig_0.011000000000000001_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0011_sig_0.011000000000000001_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0011_sig_0.011000000000000001_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0011_sig_0.011000000000000001_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0011_sig_0.011000000000000001_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0011_sig_0.011000000000000001_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0011_sig_0.011000000000000001_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0011_sig_0.011000000000000001_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0011_sig_0.011000000000000001_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0011_sig_0.011000000000000001_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0013_sig_0.013_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0013_sig_0.013_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0013_sig_0.013_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0013_sig_0.013_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0013_sig_0.013_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0013_sig_0.013_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0013_sig_0.013_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0013_sig_0.013_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0013_sig_0.013_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0013_sig_0.013_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0015_sig_0.015_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0015_sig_0.015_s_1.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0015_sig_0.015_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0015_sig_0.015_s_2.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0015_sig_0.015_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0015_sig_0.015_s_3.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0015_sig_0.015_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0015_sig_0.015_s_4.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/correlated_weights(couplings)/correlated_weights_p_0.0015_sig_0.015_s_5.txt
+540 edges -> 72q_BB_cycles_1_sigma_sweep/sigma_10p/two_qubit_marginals/correlated_weights_p_0.0015_sig_0.015_s_5.txt
+STAGE couplings COMPLETE
+ok p0.0001_m10_s4
+ok p0.0001_m10_s1
+ok p0.0001_m10_s5
+ok p0.0001_m10_s2
+ok p0.0001_m10_s3
+ok p0.0003_m10_s1
+ok p0.0003_m10_s3
+ok p0.0003_m10_s5
+ok p0.0003_m10_s2
+ok p0.0005_m10_s1
+ok p0.0005_m10_s2
+ok p0.0003_m10_s4
+ok p0.0005_m10_s4
+ok p0.0005_m10_s3
+ok p0.0005_m10_s5
+ok p0.0007_m10_s2
+ok p0.0007_m10_s4
+ok p0.0007_m10_s1
+ok p0.0007_m10_s3
+ok p0.0007_m10_s5
+ok p0.0009_m10_s2
+ok p0.0009_m10_s1
+ok p0.0009_m10_s5
+ok p0.0009_m10_s3
+ok p0.0009_m10_s4
+ok p0.0011_m10_s2
+ok p0.0011_m10_s1
+ok p0.0011_m10_s3
+ok p0.0011_m10_s5
+ok p0.0011_m10_s4
+ok p0.0013_m10_s2
+ok p0.0013_m10_s1
+ok p0.0013_m10_s3
+ok p0.0013_m10_s4
+ok p0.0013_m10_s5
+ok p0.0015_m10_s2
+ok p0.0015_m10_s3
+ok p0.0015_m10_s5
+ok p0.0015_m10_s4
+ok p0.0015_m10_s1
+STAGE decode COMPLETE
+STAGE all COMPLETE

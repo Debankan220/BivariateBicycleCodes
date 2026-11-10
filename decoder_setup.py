@@ -36,7 +36,7 @@ def rank2(A):
 
 # usage: python decoder_setup.py [error_rate] [sample]
 # error rate defaults to 0.005; sample (the disorder realisation index) to 1
-idle_error_rate = 0.0002
+idle_error_rate = 0
 two_qubit_error_rate = float(sys.argv[1]) if len(sys.argv) > 1 else 0.005
 sample = int(sys.argv[2]) if len(sys.argv) > 2 else 1
 error_rate_init = 0
@@ -47,12 +47,20 @@ error_rate_meas =0
 # Per-CNOT disorder: each physical (control,target) pair gets its own two-qubit
 # error rate drawn from N(error_rate_cnot, cnot_sigma), fixed for the whole run.
 # Set cnot_sigma = 0 to recover the homogeneous model exactly.
-cnot_sigma = 0 * two_qubit_error_rate
+# argv[3], when given, is the sigma multiplier: cnot_sigma = mult * p.
+# Without it the literal below is used, so single runs behave as before.
+cnot_sigma = (round(float(sys.argv[3]) * two_qubit_error_rate, 10)
+              if len(sys.argv) > 3 else 0.001)
 # The sample index selects the disorder realisation: one independent RNG stream
 # per sample, so sample 1 and sample 2 are different "chips" with identical
 # statistics. Same (base seed, sample) always reproduces the same chip.
 cnot_base_seed = 12345
 cnot_seed = [cnot_base_seed, sample]
+# argv[4] == 'abs': a negative draw is replaced by its absolute value (the draw
+# is folded) instead of being clipped to 0. Without it negative draws are
+# clipped to 0, as before. Note that folding raises the mean of the drawn rates
+# when cnot_sigma is large compared with the nominal rate.
+fold_negative = len(sys.argv) > 4 and sys.argv[4] == 'abs'
 
 
 
@@ -320,8 +328,10 @@ for gate in cycle:
 	if gate[0]=='CNOT':
 		pair = (gate[1],gate[2])
 		if not(pair in cnot_rates):
-			cnot_rates[pair] = float(np.clip(
-				_cnot_rng.normal(error_rate_cnot,cnot_sigma),0.0,1.0))
+			draw = _cnot_rng.normal(error_rate_cnot,cnot_sigma)
+			if fold_negative:
+				draw = abs(draw)
+			cnot_rates[pair] = float(np.clip(draw,0.0,1.0))
 
 if len(cnot_rates)>0:
 	_vals = list(cnot_rates.values())
@@ -729,6 +739,7 @@ mydata['error_rates']={
 }
 mydata['cnot_rates']=cnot_rates
 mydata['cnot_sigma']=cnot_sigma
+mydata['cnot_fold_negative']=fold_negative
 mydata['cnot_seed']=cnot_seed
 mydata['sample']=sample
 mydata['sX']=sX

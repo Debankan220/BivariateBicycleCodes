@@ -10,18 +10,23 @@ from ldpc import BpOsdDecoder
 # ============================================================
 
 # List of physical error rates to decode in one run.
-# Each rate must have a matching testing file test_p_{p}_s_{sample}.txt.
+# Each rate must have a matching testing file
+# test_p_{p}_sig_{cnot_sigma}_s_{sample}.txt.
 error_rates = [
-    0.0001, 0.0003, 0.0005, 0.0007, 0.0009,
-    0.0011, 0.0013, 0.0015, 0.0017, 0.0019, 0.002,
-    0.0024, 0.0028, 0.0032, 0.0036,
-    0.004, 0.0044, 0.0048, 0.005,
+  0.0007
 ]
 
-sample = 1
+sample = int(os.environ.get("BB_SAMPLE", 1))
+
+# Per-CNOT disorder spread of the run being decoded, as a function of p. It is
+# part of the testing filename, so this must reproduce exactly what
+# decoder_setup.py used: cnot_sigma = SIGMA_MULT * p (here 10 * p, e.g. 0.007 for
+# p = 0.0007). Set the environment variable BB_SIGMA_MULT to use another multiplier.
+SIGMA_MULT = float(os.environ.get("BB_SIGMA_MULT", 10))
+cnot_sigma = lambda p: round(SIGMA_MULT * p, 10)
 num_cycles = 1
 
-base_directory = "90q_BB_cycles_1"
+base_directory = os.environ.get("BB_OUT", "data/72q_BB_cycles_1")
 code_directory = os.path.join(base_directory, "code")
 testing_data_directory = os.path.join(base_directory, "testing_data")
 results_directory = os.path.join(base_directory, "results")
@@ -53,7 +58,7 @@ def decode_one(p_value, HZ, H_perp, decoder_x, code_label):
 
     test_file = os.path.join(
         testing_data_directory,
-        f"test_p_{p_value}_s_{sample}.txt",
+        f"test_p_{p_value}_sig_{cnot_sigma(p_value)}_s_{sample}.txt",
     )
 
     if not os.path.exists(test_file):
@@ -112,7 +117,7 @@ def decode_one(p_value, HZ, H_perp, decoder_x, code_label):
     result_file = os.path.join(
         results_directory,
         (
-            f"{code_label}_p_{p_value}_cycles_{num_cycles}_"
+            f"{code_label}_p_{p_value}_sig_{cnot_sigma(p_value)}_s_{sample}"
             f"BP+OSD_failure_rates_OSD_E_order_2.txt"
         ),
     )
